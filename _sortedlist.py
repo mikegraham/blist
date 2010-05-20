@@ -105,6 +105,12 @@ class sortedlist(collections.MutableSet, collections.Sequence):
             return rv
         return self._i2u(self._blist[index])
 
+    def __delitem__(self, index):
+        del self._blist[index]
+
+    def pop(self, index=0):
+        return self._i2u(self._blist.pop(index))
+
     def _advance(self, i, value):
         "Do a linear search through all items with the same key"
         key = self._u2key(value)
